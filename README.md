@@ -1,5 +1,8 @@
 # ESP32 Ethernet Router
 
+For a focused first-boot and WT32-ETH01 flashing walkthrough, see the
+[WT32-ETH01 setup guide](docs/WT32-ETH01_SETUP.md).
+
 Firmware for the **[WT32-ETH01](https://github.com/egnor/wt32-eth01)** board (and boards with a W5500 ethernet module) that turns it into a compact network router. 
 
 **Derived from** [esp32_nat_router](https://github.com/martin-ger/esp32_nat_router). The original project uses WiFi as the downlink (AP) and (as one option) Ethernet as the uplink. This variant reverses that: **WiFi STA is the uplink** (Internet) and **Ethernet is the downlink** (LAN). If you are looking for a plain ESP32 **Ethernet AP** (Layer 2 bridge), check out [esp32_eth_wifi_bridge](https://github.com/martin-ger/esp32_eth_wifi_bridge).
@@ -781,6 +784,10 @@ Changes are applied after `restart`; see [WireGuard VPN](#wireguard-vpn) for det
 Requires ESP-IDF v5.x. Source the ESP-IDF environment, then build for your target hardware.
 
 ### WT32-ETH01 (ESP32 + LAN8720)
+
+On macOS or Linux, the repository includes a flash.sh helper that writes the
+prebuilt firmware and preserves NVS by default. See the WT32-ETH01 setup guide
+for usage and the explicit ERASE=1 recovery option.
 
 ```bash
 . $IDF_PATH/export.sh
